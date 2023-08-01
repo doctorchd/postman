@@ -1,0 +1,1386 @@
+{
+	"info": {
+		"_postman_id": "0576df16-0c4d-41bb-80f3-c3400bb83628",
+		"name": "phpIPAM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Authenticate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"apiToken\", jsonData.data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "vaiquah7AihietheiYoo",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "oamadmin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/user/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/user/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Extend token validity",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/user/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check permissions",
+					"request": {
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VRFs",
+			"item": [
+				{
+					"name": "Get list of VRFs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/vrfs/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"vrfs",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subnets",
+			"item": [
+				{
+					"name": "Get list of subnets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get particular subnet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/78/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"78",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subnet usage",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/78/usage/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"78",
+								"usage",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subnet slaves",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/78/slaves/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"78",
+								"slaves",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subnet slaves recursive",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/9/slaves_recursive/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"9",
+								"slaves_recursive",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subnet addresses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/87/addresses/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"87",
+								"addresses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subnet particular address",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/88/addresses/10.193.16.2/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"88",
+								"addresses",
+								"10.193.16.2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subnet first free address",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/87/first_free/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"87",
+								"first_free",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get first subnet with mask in subnet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/87/first_subnet/26/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"87",
+								"first_subnet",
+								"26",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get last subnet with mask in subnet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/87/last_subnet/26/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"87",
+								"last_subnet",
+								"26",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all subnets with mask in subnet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/87/all_subnets/22/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"87",
+								"all_subnets",
+								"22",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subnet custom fields",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/custom_fields/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"custom_fields",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search for subnet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/search/10.193.16.0/20/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"search",
+								"10.193.16.0",
+								"20",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search for overlapping subnets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/overlapping/0.0.0.0/0/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"overlapping",
+								"0.0.0.0",
+								"0",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create subnet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "subnet",
+									"value": "7.0.0.0",
+									"type": "default"
+								},
+								{
+									"key": "mask",
+									"value": "8",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "default"
+								},
+								{
+									"key": "sectionId",
+									"value": "1",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update subnet",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "140",
+									"type": "default"
+								},
+								{
+									"key": "sectionId",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "vrfId",
+									"value": "4",
+									"type": "default"
+								},
+								{
+									"key": "showName",
+									"value": "1",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete subnet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "140",
+									"type": "default"
+								},
+								{
+									"key": "sectionId",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "vrfId",
+									"value": "4",
+									"type": "default"
+								},
+								{
+									"key": "showName",
+									"value": "1",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/subnets/140/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"subnets",
+								"140",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sections",
+			"item": [
+				{
+					"name": "Get sections",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/sections/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"sections",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Addresses",
+			"item": [
+				{
+					"name": "Get specific address",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/143/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"143",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all addresses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/all/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"all",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get address from subnet by address",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/10.193.16.2/88/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"10.193.16.2",
+								"88",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get address in all subnets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/search/10.193.16.2/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"search",
+								"10.193.16.2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get address by hostname",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/search_hostname/a230517000/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"search_hostname",
+								"a230517000",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get first free address in subnet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/first_free/88/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"first_free",
+								"88",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get address custom fields",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/custom_fields/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"custom_fields",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get address tags",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/tags/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"tags",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific address tag",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/tags/2/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"tags",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get addresses with specific tag",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/tags/2/addresses/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"tags",
+								"2",
+								"addresses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ip",
+									"value": "10.193.0.20",
+									"type": "default"
+								},
+								{
+									"key": "subnetId",
+									"value": "87",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create first free address in subnet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/first_free/87/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"first_free",
+								"87",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update address",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "hostname",
+									"value": "test",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/565/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"565",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete address by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/566/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"566",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete address by value",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/10.193.0.20/87/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"10.193.0.20",
+								"87",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Misc",
+			"item": [
+				{
+					"name": "Search subnet by name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/addresses/143/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								"addresses",
+								"143",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get controllers",
+					"request": {
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{apiToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://ipam.sq/api/oamutils/",
+							"protocol": "https",
+							"host": [
+								"ipam",
+								"sq"
+							],
+							"path": [
+								"api",
+								"oamutils",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
